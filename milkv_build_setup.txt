@@ -1,0 +1,16 @@
+cd host-tools
+
+export PATH=$PATH:$(pwd)/gcc/riscv64-linux-musl-x86_64/bin
+riscv64-unknown-linux-musl-gcc --version
+
+
+cd milkv-duo/duo-tdl-examples/
+. envsetup.sh
+//select cpu & arch
+
+cd ..
+cd milkv/build-paho-mqtt/
+rm -rf *
+cmake --build .
+cmake ../paho.mqtt.c/
+

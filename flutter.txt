@@ -1,0 +1,2 @@
+ export PATH=/media/nvme0n1p7/v/wrk/flutter/bin/:$PATH
+

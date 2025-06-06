@@ -1,0 +1,8 @@
+debian python, virtualenv
+
+sudo apt install python3-pip
+sudo apt install python3-virtualenv
+
+python
+
+pip install -r requirements.txt

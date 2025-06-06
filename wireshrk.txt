@@ -1,0 +1,4 @@
+sudo chmod +x /usr/bin/dumpcap
+sudo adduser $USER wireshark
+newgrp wireshark
+

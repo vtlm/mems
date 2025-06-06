@@ -1,0 +1,14 @@
+//dnw
+
+service: telegram_bot.send_photo
+data: 
+      #file: /config/high-volage.jpeg
+      url: https://i.discogs.com/XOzHaBbsIozZJhYUIDw0T8cKAs3bNmLMNo_vZFPE9BU/rs:fit/g:sm/q:90/h:600/w:586/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQyMzI3/NjMtMTM2MTk2NTkx/OC05ODUwLmpwZWc.jpeg
+
+
+//w
+
+service: telegram_bot.send_message
+data: {
+message: hey
+}

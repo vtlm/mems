@@ -1,0 +1,54 @@
+1. eth0
+
+/etc/dhcpcd.conf
+
+interface eth0
+static ip_address=192.168.0.111/24
+static routers=192.168.0.13
+static domain_name_servers=192.168.0.13 8.8.8.8
+
+
+2. auto run camera detection
+
+vi /mnt/system/auto.sh
+
+export LD_LIBRARY_PATH=/mnt/system/lib
+/mnt/system/usr/bin/sample_vi_fd /mnt/cvimodel/scrfd_480_270_int8.cvimodel &
+
+
+3. blue LED blink times
+
+#!/bin/sh
+
+LED_PIN=440
+
+LED_GPIO=/sys/class/gpio/gpio${LED_PIN}
+
+if test -d ${LED_GPIO}; then
+    echo "PIN ${LED_PIN} already exported"
+else
+#!/bin/sh
+
+LED_PIN=440
+
+LED_GPIO=/sys/class/gpio/gpio${LED_PIN}
+
+if test -d ${LED_GPIO}; then
+    echo "PIN ${LED_PIN} already exported"
+else
+    echo ${LED_PIN} > /sys/class/gpio/export
+fi
+
+echo out > ${LED_GPIO}/direction
+
+while true; do
+    echo 0 > ${LED_GPIO}/value
+    sleep 1
+    for i in 1 2
+    do
+      echo 1 > ${LED_GPIO}/value
+      sleep 0.1
+      echo 0 > ${LED_GPIO}/value
+      sleep 0.2
+    done
+done

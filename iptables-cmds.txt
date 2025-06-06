@@ -1,0 +1,5 @@
+
+sudo sysctl net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -o wlp1s0 -j MASQUERADE
+sudo iptables -A FORWARD -i enx68e43b309298 -o wlp1s0 -j ACCEPT
+sudo iptables -A FORWARD -i wlp1s0 -o enx68e43b309298 -j ACCEPT

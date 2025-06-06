@@ -1,0 +1,59 @@
+#disable systemd-resolved
+
+sudo ss -lp "sport = :domain"
+
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+sudo systemctl mask systemd-resolved
+
+#set static ip for wlan in /etc/network/interfaces
+
+sudo apt install hostapd dnsmasq
+
+
+#edit /etc/dansmasq.conf
+
+#create /etc/hostapd/hostapd.conf
+
+sudo systemctl unmask hostapd.service
+sudo systemctl enable hostapd.service
+
+
+
+
+
+//old version
+
+disable wpa_supplicant
+
+
+
+sudo apt install dhcpcd5
+sudo systemctl stop NetworkManager
+sudo systemctl disable NetworkManager
+sudo cp tmp/wpa_supplicant-wlan0.conf /etc/wpa_supplicant/
+sudo nano /etc/wpa_supplicant/wpa_supplicant-wlan0.conf 
+ip a
+sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant-wlan0.conf 
+ip a
+dhcpcd
+sudo dhcpcd
+ip a
+sudo systemctl enable wpa_supplicant@wlan0.service
+sudo reboot
+
+
+/etc/dhcpcd.conf
+
+denyinterfaces wlan0
+
+
+/etc/network/interfaces
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet static
+address 192.168.10.1
+netmask 255.255.255.0
+#gateway 192.168.0.1
+dns-nameservers 8.8.8.8
