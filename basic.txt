@@ -1,0 +1,6 @@
+history | cut -b 8-
+
+scp sample_vi_fd root@192.168.0.152:/mnt/system/usr/bin/
+scp root@192.168.0.152:/root/frame.jpg .
+ 
+

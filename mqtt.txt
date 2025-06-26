@@ -1,0 +1,8 @@
+docker run -it --rm emqx/mqttx-cli
+
+mqttx sub -t 'CamCtl' -h 192.168.0.11 -p 1883
+mqttx sub -t 'CamFrame' -h 192.168.0.11 -p 1883
+mqttx pub -t 'CamCtl/152' - 192.168.0.11 -p 1883 -m 'getFrame'
+
+mqttx bench conn -c 5000
+

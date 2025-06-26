@@ -22,3 +22,14 @@ docker run -it \
        --device /dev/snd \
        -v $2 \
        $1 $3
+
+#node-js
+ docker run -it -v ${PWD}:/mnt node:24.1.0-bookworm /bin/bash
+ 
+ #mqttx-web
+ docker run -d --name mqttx-web -p 80:80 emqx/mqttx-web
+
+#emqx 
+ docker run -d --name emqx-enterprise   -p 1883:1883 -p 8083:8083   -p 8084:8084 -p 8883:8883   -p 18083:18083   -v $PWD/data:/opt/emqx/data   -v $PWD/log:/opt/emqx/log   emqx/emqx-enterprise:5.9.0
+
+

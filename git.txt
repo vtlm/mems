@@ -1,0 +1,19 @@
+#init new repo
+
+git init
+git status
+git add *
+git status
+git commit -m "init"
+git config --global user.email "vtl_m@mail.ru"
+git config --global user.name "vtl"
+git commit -m "init"
+git status
+
+
+history | cut -b 8-
+
+
+
+git checkout -b my-branch
+
