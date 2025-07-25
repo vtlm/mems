@@ -1,0 +1,2 @@
+#find hosts in LAN
+sudo nmap -sn 192.168.4.0/24
