@@ -1,6 +1,15 @@
 history | cut -b 8-
 
+export PATH=$PATH:/media/595GB/v/wrk/dockerfiles/
+echo export PATH=$PATH:/media/595GB/v/wrk/dockerfiles/ >setup.sh
+
+
+
 scp sample_vi_fd root@192.168.0.152:/mnt/system/usr/bin/
 scp root@192.168.0.152:/root/frame.jpg .
+
+rm -rf ~/.local/share/Trash/*
  
+find /mnt -name libflatccrt.so
+find /mnt -name lib*
 

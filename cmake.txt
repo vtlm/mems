@@ -1,0 +1,1 @@
+cmake --build /mnt/build -j $(nproc)

@@ -1,0 +1,13 @@
+git clone https://github.com/dvidelabs/flatcc.git
+cd flatcc
+# scripts/initbuild.sh ninja
+scripts/initbuild.sh make
+scripts/setup.sh -a ../mymonster
+ls bin
+ls lib
+
+./flatcc/bin/flatcc -a -o fbs/out/ fbs/xchg_param.fb
+
+
+#in fbs dir
+../flatbuffers/flatc --kotlin xchg_param.fbs 

@@ -1,0 +1,13 @@
+#build runtime lib
+
+cd 3rd
+git clone --depth=1 https://github.com/dvidelabs/flatcc.git
+cd ..
+. ./riscv-envsetup.sh
+cd 3rd/flatcc/
+mkdir build-riscv
+cd build-riscv/
+cmake .. -DBUILD_SHARED_LIBS=on -DFLATCC_RTONLY=on   -DCMAKE_BUILD_TYPE=Release
+make
+
+#res in /media/595GB/v/wrk/milk-v/3rd/flatcc/lib/libflatccrt.so

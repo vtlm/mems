@@ -31,5 +31,7 @@ docker run -it \
 
 #emqx 
  docker run -d --name emqx-enterprise   -p 1883:1883 -p 8083:8083   -p 8084:8084 -p 8883:8883   -p 18083:18083   -v $PWD/data:/opt/emqx/data   -v $PWD/log:/opt/emqx/log   emqx/emqx-enterprise:5.9.0
+ 
+docker run -d --restart unless-stopped   -p 1883:1883 -p 8083:8083   -p 8084:8084 -p 8883:8883   -p 18083:18083   -v $PWD/data:/opt/emqx/data   -v $PWD/log:/opt/emqx/log   emqx/emqx-enterprise:5.9.0
 
 

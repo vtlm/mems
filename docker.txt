@@ -1,0 +1,26 @@
+https://wiki.casaos.io/en/guides/move-docker-images-and-volumes-to-a-diffferent-storage
+
+sudo systemctl stop docker.service
+
+nano /lib/systemd/system/docker.service
+
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --data-root /path/to/new/location
+
+or
+
+# nano /etc/docker/daemon.json
+{
+ "data-root": "/mnt/new"
+}
+
+$ sudo rsync -avxP /var/lib/docker/ /path/to/new/location
+$ sudo rm -rf /var/lib/docker/*
+
+>>>>>
+
+docker commit f773e728bf8f freecad:builded
+docker save freecad:builded |gzip > freecad_builded.tar.gz
+docker load < busybox.tar.gz
+
+
+./docker-freecad.sh freecad:latest ${PWD}/freecad:/mnt
