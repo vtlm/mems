@@ -6,17 +6,97 @@ sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
 sudo systemctl mask systemd-resolved
 
-#set static ip for wlan in /etc/network/interfaces
+#set static ip for wlan with
+#1 in /etc/network/interfaces
+#or, if use sysytemd-networkd
+# create file
+
+/etc/systemd/network/80-wifi-ap.network
+
+[Match]
+Name=wlan0
+#Type=wlan
+#WLANInterfaceType=ap
+
+[Network]
+Address=192.168.10.1/24
+DHCPServer=no
+#IPMasquerade=both
+IPv6AcceptRA=no
+#IPv6SendRA=yes
+
+<<<EOF
+
 
 sudo apt install hostapd dnsmasq
 
 
 #edit /etc/dansmasq.conf
 
+domain-needed
+bogus-priv
+filterwin2k
+server=1.1.1.1
+# Listen address is better because, with "interface", it will also listen on "lo"
+listen-address=::1,127.0.0.1,192.168.0.14,192.168.10.1
+no-hosts
+dhcp-range=192.168.10.50,192.168.10.150,12h
+
+
+no-resolv
+
+server=8.8.8.8
+server=8.8.4.4
+
+
+
 #create /etc/hostapd/hostapd.conf
+
+cat hostapd.conf
+# the interface used by the AP
+interface=wlan0
+# "g" simply means 2.4GHz band
+hw_mode=g
+# the channel to use
+channel=10
+# limit the frequencies used to those allowed in the country
+ieee80211d=1
+# the country code
+country_code=BY
+# 802.11n support
+ieee80211n=1
+# QoS support, also required for full speed on 802.11n/ac/ax
+wmm_enabled=1
+
+# the name of the AP
+ssid=HomeAssistantAP
+# 1=wpa, 2=wep, 3=both
+auth_algs=1
+# WPA2 only
+wpa=2
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+wpa_passphrase=some$trongPassword#1
+
+
+cat /etc/systemd/system/hostapd_custom.service
+[Unit]
+Description=hostapd
+After=multi-user.target network.target dnsmasq.service dhcpcd.service
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/hostapd -B /home/v/hostapd.conf
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+
 
 sudo systemctl unmask hostapd.service
 sudo systemctl enable hostapd.service
+sudo systemctl start hostapd.service
 
 
 

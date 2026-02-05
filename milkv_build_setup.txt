@@ -1,3 +1,16 @@
+build image
+
+git clone https://github.com/milkv-duo/duo-buildroot-sdk-v2.git --depth=1
+wget https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/download/dl/dl.tar
+tar xvf ./dl.tar -C ./duo-buildroot-sdk-v2/buildroot/
+cd duo-buildroot-sdk-v2/
+docker run --privileged -itd --name duodocker -v "$(pwd)":/home/work milkvtech/milkv-duo:latest /bin/bash
+docker run --privileged -itd --name duodocker3 -v "$(pwd)":/home/work milkvtech/milkv-duo:latest /bin/bash
+docker ps -a
+docker exec -it 8edea33c2239 /bin/bash
+
+
+
 cd host-tools
 
 export PATH=$PATH:$(pwd)/gcc/riscv64-linux-musl-x86_64/bin

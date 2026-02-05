@@ -16,11 +16,15 @@ or
 $ sudo rsync -avxP /var/lib/docker/ /path/to/new/location
 $ sudo rm -rf /var/lib/docker/*
 
->>>>>
 
+
+#image from container
 docker commit f773e728bf8f freecad:builded
+
 docker save freecad:builded |gzip > freecad_builded.tar.gz
 docker load < busybox.tar.gz
 
 
 ./docker-freecad.sh freecad:latest ${PWD}/freecad:/mnt
+
+docker image rm esphome/esphome:latest
