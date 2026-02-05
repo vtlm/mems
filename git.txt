@@ -21,3 +21,8 @@ https://stackoverflow.com/questions/77151339/git-you-have-divergent-branches-whe
 git reset --hard origin/main
 git reset --hard @{u}
 
+#Switching remote URLs from HTTPS to SSH
+git remote set-url origin git@github.com:vtlm/mems.git
+
+
+
