@@ -1,0 +1,18 @@
+scp sample_vi_fd root@192.168.0.152:/mnt/system/usr/bin/
+scp root@192.168.0.152:/root/frame.jpg .
+scp file v@192.168.0.5:~
+
+ 
+find -name "mosquit*"
+
+#from root dir
+scp -J v@192.168.10.1 /usr/bin/mosquitt* root@192.168.0.153:/usr/bin/
+scp -J v@192.168.10.1 /usr/bin/mosquitto_sub root@192.168.0.153:/usr/bin/
+#from curr dir
+scp -J v@192.168.10.1 usr/bin/mosquitto_sub root@192.168.0.153:/usr/bin/
+scp -J v@192.168.10.1 usr/bin/mosquitto* root@192.168.0.153:/usr/bin/
+scp -J v@192.168.10.1 usr/sbin/mosquitto* root@192.168.0.153:/usr/sbin/
+scp -J v@192.168.10.1 usr/bin/nano root@192.168.0.153:/usr/bin/
+find -name "libmosquit*"
+scp -J v@192.168.10.1 usr/lib/libmosquitto* root@192.168.0.153:/usr/lib/
+

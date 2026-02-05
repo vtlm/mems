@@ -1,0 +1,6 @@
+virtualenv build123d
+. build123d/bin/activate
+(build123d) v@vivo:/media/nvme0n1p7/v/wrk/virtualenv-py$
+
+deactivate
+

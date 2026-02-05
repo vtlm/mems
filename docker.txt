@@ -1,0 +1,2 @@
+docker image rm esphome/esphome:latest
+

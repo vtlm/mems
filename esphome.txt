@@ -1,0 +1,6 @@
+#run tagged version
+docker run --rm --privileged --net=host -v "${PWD}":/config -it esphome/esphome:2025.10.4
+
+#upload on orangepi 3 lts
+docker run --rm --privileged -v "${PWD}":/config --device=/dev/ttyACM0 -it ghcr.io/esphome/esphome run esp32c3-luatos-1.yaml
+
