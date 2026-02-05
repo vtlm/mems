@@ -11,9 +11,13 @@ git commit -m "init"
 git status
 
 
-history | cut -b 8-
-
-
-
 git checkout -b my-branch
+
+
+git "You have divergent branches" when I havent made any changes or commits
+
+https://stackoverflow.com/questions/77151339/git-you-have-divergent-branches-when-i-havent-made-any-changes-or-commits/77151745
+
+git reset --hard origin/main
+git reset --hard @{u}
 
