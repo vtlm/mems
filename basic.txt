@@ -1,13 +1,22 @@
-history | cut -b 8-
-
-export PATH=$PATH:/media/595GB/v/wrk/dockerfiles/
 echo export PATH=$PATH:/media/595GB/v/wrk/dockerfiles/ >setup.sh
 
+export PATH=$(pwd):$PATH
+export PATH=$PATH:/media/595GB/v/wrk/dockerfiles/
+export PATH=$PATH:/home/v/.local/bin
 
-rm -rf ~/.local/share/Trash/*
- 
+
 find /mnt -name libflatccrt.so
 find /mnt -name lib*
 
+
+grep -r --include=*.{h,c} SAMPLE
+
+
+history | cut -b 8-
+
+
 ls -la d*
 
+
+rm -rf ~/.local/share/Trash/*
+rm -rf ~/.local/share/Trash/files/*

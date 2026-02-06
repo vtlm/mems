@@ -1,2 +1,9 @@
- sudo tcpdump -nn -i eth0 icmp
+sudo tcpdump -nn -i eth0 icmp
 tcpdump -i enp1s9 dst 192.168.6.1 and src 192.168.6.2 and src port 80
+
+#in ASCII
+sudo tcpdump -i any port 1883
+sudo tcpdump -i wwan0  src port 1883 -Avv
+
+tcpdump -i eth0 host 192.168.0.11
+tcpdump -i wlan0 host 32323232323.dyndns.mts.by

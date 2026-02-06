@@ -1,0 +1,11 @@
+sudo nft list tables
+ 
+sudo nft list table nat
+
+#with handles
+sudo nft -a list table nat  
+sudo nft -a list table filter 
+
+sudo nft 'add chain filter input { type filter hook input priority 100;}'
+sudo nft add rule filter input tcp dport 1883  tcp flags 0xff accept
+
