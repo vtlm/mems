@@ -14,7 +14,8 @@ vi /mnt/system/auto.sh
 
 export LD_LIBRARY_PATH=/mnt/system/lib
 /mnt/system/usr/bin/sample_vi_fd /mnt/cvimodel/scrfd_480_270_int8.cvimodel &
-
+/mnt/system/usr/bin/a.out /mnt/system/usr/bin/sample_vi_od /mnt/system/usr/bin/sample_vi_od 153 mobiledetv2-pedestrian /mnt/cvimodel/mobiledetv2-pedestrian-d0-ls-448.cvimo
+del &
 
 3. blue LED blink times
 
