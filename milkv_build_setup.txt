@@ -8,21 +8,20 @@ docker run --privileged -itd --name duodocker -v "$(pwd)":/home/work milkvtech/m
 docker ps -a
 docker exec -it 8edea33c2239 /bin/bash
 
+###
 
+cd where dir host-tools
 
-cd host-tools
-
-export PATH=$PATH:$(pwd)/gcc/riscv64-linux-musl-x86_64/bin
+export PATH=$PATH:$(pwd)/host-tools/gcc/riscv64-linux-musl-x86_64/bin
 riscv64-unknown-linux-musl-gcc --version
 
 
-cd milkv-duo/duo-tdl-examples/
-. envsetup.sh
+. ./duo-tdl-examples/envsetup.sh
 //select cpu & arch
 
-cd ..
-cd milkv/build-paho-mqtt/
-rm -rf *
-cmake --build .
+
+mkdir build-paho-mqtt
+cd build-paho-mqtt/
 cmake ../paho.mqtt.c/
+cmake --build .
 
