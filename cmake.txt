@@ -1,1 +1,11 @@
 cmake --build /mnt/build -j $(nproc)
+
+#paho-mqtt-cpp
+cd ../paho.mqtt.cpp
+git submodule init
+git submodule update 
+cd ../paho.mqtt.cpp-
+cd ../paho.mqtt.cpp-build/
+cmake ../paho.mqtt.cpp -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -DPAHO_BUILD_EXAMPLES=ON
+cmake --build .
+sudo cmake --install .
