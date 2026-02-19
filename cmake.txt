@@ -1,1 +1,15 @@
+cmake -B build-riscv
+cmake --build  build-riscv
+readelf -h build-riscv/run-mon
+
+
 cmake --build /mnt/build -j $(nproc)
+
+
+cd build-paho-mqtt-cpp/
+cmake ../paho.mqtt.cpp/ -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -DPAHO_BUILD_EXAMPLES=ON
+cmake ../paho.mqtt.cpp/ -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -DPAHO_BUILD_EXAMPLES=ON -DCMAKE_INSTALL_PREFIX=/opt
+
+#fromm common top dir
+make -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -B build-paho-mqtt-cpp-riscv paho.mqtt.cpp/
+cmake --build build-paho-mqtt-cpp-riscv/ -j $(nproc)
