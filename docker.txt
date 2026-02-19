@@ -64,6 +64,8 @@ docker run -it \
 ./docker-freecad.sh freecad:latest ${PWD}/freecad:/mnt
 docker-x11.sh freecad:latest ${PWD}:/mnt
 docker-x11.sh occt:latest    ${PWD}:/mnt
+#mount up one level dir
+./docker-x11.sh cpp-devel ${PWD}/../:/mnt
 
 echo docker-x11.sh freecad:latest ${PWD}:/mnt >>run-in-docker.sh
 echo "docker-x11.sh freecad:latest ${PWD}:/mnt" >>run-in-docker2.sh
@@ -81,4 +83,9 @@ docker run -d --restart unless-stopped   -p 1883:1883 -p 8083:8083   -p 8084:808
 docker run --privileged -itd  -v $(pwd):/home/work milkvtech/milkv-duo:latest /bin/bash
 docker run --privileged -itd --name duodocker -v $(pwd):/home/work milkvtech/milkv-duo:latest /bin/bash
 docker run --privileged -itd --name duodocker -v "$(pwd)":/home/work milkvtech/milkv-duo:latest /bin/bash
+
+###
+
+docker history --no-trunc occt:lates
+
 
