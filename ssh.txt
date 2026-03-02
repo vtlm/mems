@@ -1,0 +1,13 @@
+ssh-keygen -t ecdsa -b 521
+
+ssh-copy-id -i ~/.ssh/id_ecdsa.pub v@192.168.94.117
+ssh 'v@192.168.94.117'
+
+ssh-copy-id -i ~/.ssh/id_ecdsa.pub -o ProxyJump=192.168.94.117 root@192.168.0.153
+ssh-keygen -f "/home/v/.ssh/known_hosts" -R "192.168.0.153"
+
+ssh-copy-id -i ~/.ssh/id_ecdsa.pub -o ProxyJump=192.168.94.117 root@192.168.0.154
+
+ssh -o 'ProxyJump=192.168.94.117' 'root@192.168.0.153'
+
+scp -o 'ProxyJump=192.168.94.117' mqtt/paho-mqtt-cpp-tst-build-riscv/paho-mqtt-cpp-tst  'root@192.168.0.153:/mnt/system/'
