@@ -8,11 +8,16 @@ static routers=192.168.0.13
 static domain_name_servers=192.168.0.13 8.8.8.8
 
 
+#copy
+
+
+
 2. auto run camera detection
 
 vi /mnt/system/auto.sh
 
 export LD_LIBRARY_PATH=/mnt/system/lib
+export LD_LIBRARY_PATH=/mnt/system/lib:/mnt/system/usr/lib:/mnt/system/usr/lib/3rd
 /mnt/system/usr/bin/sample_vi_fd /mnt/cvimodel/scrfd_480_270_int8.cvimodel &
 /mnt/system/usr/bin/a.out /mnt/system/usr/bin/sample_vi_od /mnt/system/usr/bin/sample_vi_od 153 mobiledetv2-pedestrian /mnt/cvimodel/mobiledetv2-pedestrian-d0-ls-448.cvimo
 del &
