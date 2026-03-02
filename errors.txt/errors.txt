@@ -1,3 +1,29 @@
 opi3b
 lose wi fi
 sprdwl:init_first_defrag_node: fragment replace: 5, 4
+
+milkv duo 256
+  1 03:41:21 milkv-duo kern.info kernel: [200175.980019] sample_vi_od[352]: unhandled signal 11 code 0x1 at 0x0000000000000018 in libpaho-mqtt3c.so.1.3.14[3fe97f0000+21000]
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980075] CPU: 0 PID: 352 Comm: sample_vi_od Tainted: GF          O      5.10.4-tag- #1
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980087] epc: 0000003fe97f6d80 ra : 000000000001b888 sp : 0000003fe8ac68c0
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980097]  gp : 0000000000033ba8 tp : 0000003fe8ac6ba8 t0 : 0000000000000065
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980108]  t1 : 000000000001943c t2 : 0000003fe8ac6494 s0 : 0000000000033e74
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980119]  s1 : 0000000000029000 a0 : 0000000000000000 a1 : 0000000000033058
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980129]  a2 : 0000000000000000 a3 : 0000000000000003 a4 : 0000000000000000
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980138]  a5 : 0000000000000010 a6 : 0000000000000000 a7 : 0000000000000071
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980148]  s2 : 0000000000033e70 s3 : 0000000000033e60 s4 : 0000000000033e60
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980158]  s5 : 0000000000019d72 s6 : 0000000000019f06 s7 : 0000000000019d6c
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980168]  s8 : 0000003fe8ac6c00 s9 : 0000000000000000 s10: 000000000001a47c
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980178]  s11: 0000000000002000 t3 : 0000003fe97f6d80 t4 : 0000000000000003
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980187]  t5 : 0000000000000009 t6 : 0000000073000000
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200175.980197] status: 8000000201804020 badaddr: 0000000000000018 cause: 000000000000000d
+Mar  1 03:41:21 milkv-duo kern.err kernel: [200175.980402] base_get_chn_buffer:267(): Mod(VPSS) Grp(0) Chn(0), jobs wait(0) work(2) done(0)
+Mar  1 03:41:21 milkv-duo kern.err kernel: [200175.991244] vpss_get_chn_frame:4557(): Grp(0) Chn(0) get chn frame fail, s32MilliSec=20000, ret=-1
+Mar  1 03:41:21 milkv-duo kern.info kernel: [200176.055709] close channel no. 1
+Mar  1 03:41:21 milkv-duo kern.info kernel: [200176.055878] close channel no. 0
+Mar  1 03:41:21 milkv-duo kern.info kernel: [200176.056168] vpss_release
+Mar  1 03:41:21 milkv-duo kern.info kernel: [200176.056196] vi_stop_streaming:3211(): +
+Mar  1 03:41:21 milkv-duo kern.warn kernel: [200176.056209] vi_stop_streaming:3236(): wait count(9)
+Mar  1 03:41:21 milkv-duo kern.info kernel: [200176.082458] vi_release:6246(): -
+Mar  1 06:23:06 milkv-duo authpriv.info dropbear[369]: Child connection from 192.168.0.7:55790
+Mar  1 06:23:13 milkv-duo authpriv.notice dropbear[369]: Password auth succeeded for 'root' from 192.168.0.7:55790
