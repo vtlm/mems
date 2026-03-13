@@ -1,3 +1,4 @@
+# n - decode/show ip addr
 sudo tcpdump -nn -i eth0 icmp
 tcpdump -i enp1s9 dst 192.168.6.1 and src 192.168.6.2 and src port 80
 

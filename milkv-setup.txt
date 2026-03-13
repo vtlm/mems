@@ -8,6 +8,9 @@ static routers=192.168.0.13
 static domain_name_servers=192.168.0.13 8.8.8.8
 
 
+edit /etc/hostname
+
+
 #copy
 
 

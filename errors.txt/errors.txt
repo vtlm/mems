@@ -27,3 +27,69 @@ Mar  1 03:41:21 milkv-duo kern.warn kernel: [200176.056209] vi_stop_streaming:32
 Mar  1 03:41:21 milkv-duo kern.info kernel: [200176.082458] vi_release:6246(): -
 Mar  1 06:23:06 milkv-duo authpriv.info dropbear[369]: Child connection from 192.168.0.7:55790
 Mar  1 06:23:13 milkv-duo authpriv.notice dropbear[369]: Password auth succeeded for 'root' from 192.168.0.7:55790
+
+
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501726] sample_vi_od invoked oom-killer: gfp_mask=0x100cca(GFP_HIGHUSER_MOVABLE), order=0, oom_score_adj=0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501749] CPU: 0 PID: 413 Comm: sample_vi_od Tainted: GF          O      5.10.4-tag- #1
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501757] Call Trace:
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501780] [<ffffffe0002281a8>] walk_stackframe+0x0/0x6c
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501798] [<ffffffe000657346>] dump_header+0x34/0x1a8
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501813] [<ffffffe000273214>] oom_kill_process+0x86/0x216
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501828] [<ffffffe0002738f4>] out_of_memory+0x242/0x26e
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501852] [<ffffffe0002968b0>] __alloc_pages_slowpath.constprop.0+0x412/0x4c4
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501871] [<ffffffe000296a52>] __alloc_pages_nodemask+0xf0/0x108
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501892] [<ffffffe0002719fc>] pagecache_get_page+0xba/0x10a
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501906] [<ffffffe000271bee>] filemap_fault+0x17a/0x2e4
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501931] [<ffffffe000311174>] ext4_filemap_fault+0x1e/0x38
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501948] [<ffffffe00028807c>] __do_fault+0x2a/0x50
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.501963] [<ffffffe00028a38a>] handle_mm_fault+0x2cc/0x532
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506063] [<ffffffe000229e34>] do_page_fault+0x220/0x2ca
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506092] [<ffffffe00022706c>] ret_from_syscall_rejected+0x8/0xc
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506104] Mem-Info:
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506131] active_anon:30317 inactive_anon:6599 isolated_anon:0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506131]  active_file:19 inactive_file:249 isolated_file:0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506131]  unevictable:0 dirty:0 writeback:0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506131]  slab_reclaimable:666 slab_unreclaimable:1538
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506131]  mapped:1 shmem:69 pagetables:177 bounce:0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506131]  free:405 free_pcp:38 free_cma:0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506151] Node 0 active_anon:121268kB inactive_anon:26396kB active_file:76kB inactive_file:996kB unevictable:0kB isolated(anon):0kB isolated(file):0kB mapped:4kB dirty:0kB writeback:0kB shmem:276kB writeback_tmp:0kB kernel_
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506178] DMA32 free:1620kB min:1644kB low:2052kB high:2460kB reserved_highatomic:0KB active_anon:121268kB inactive_anon:26396kB active_file:76kB inactive_file:996kB unevictable:0kB writepending:0kB present:258296kB managed
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506184] lowmem_reserve[]: 0 0 0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506207] DMA32: 1*4kB (U) 32*8kB (M) 11*16kB (UM) 3*32kB (M) 1*64kB (M) 0*128kB 2*256kB (UM) 1*512kB (M) 0*1024kB 0*2048kB = 1620kB
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506300] 337 total pagecache pages
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506308] 0 pages in swap cache
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506317] Swap cache stats: add 0, delete 0, find 0/0
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506324] Free swap  = 0kB
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506329] Total swap = 0kB
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506336] 64574 pages RAM
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506342] 0 pages HighMem/MovableOnly
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506348] 22268 pages reserved
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.506355] 0 pages cma reserved
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506361] Tasks state (memory values in pages):
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506368] [  pid  ]   uid  tgid total_vm      rss pgtables_bytes swapents oom_score_adj name
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506407] [    108]     0   108      418       12    24576        0             0 syslogd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506421] [    111]     0   111      418       13    20480        0             0 klogd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506435] [    130]   100   130      295       48    20480        0             0 dhcpcd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506449] [    131]     0   131      295       42    20480        0             0 dhcpcd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506463] [    132]   100   132      290       35    20480        0             0 dhcpcd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506477] [    133]   100   133      290       35    20480        0             0 dhcpcd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506491] [    149]     0   149     1601      187    32768        0             0 ntpd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506505] [    155]     0   155      418       13    20480        0             0 crond
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506519] [    160]     0   160      252       12    20480        0             0 dropbear
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506533] [    163] 65534   163      274       24    20480        0             0 dnsmasq
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506551] [    192]     0   192      421       17    20480        0             0 S99user
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506566] [    203]     0   203      425       21    20480        0             0 sh
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506580] [    269]   100   269      296       41    20480        0             0 dhcpcd
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506595] [    361]     0   361     1527       91    28672        0             0 paho-mqtt-cpp-t
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506608] [    372]     0   372    41295    36224   356352        0             0 sample_vi_od
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506623] [   1994]     0  1994     1397      109    28672        0             0 sleep
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.506632] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sample_vi_od,pid=372,uid=0
+Mar  1 09:12:45 milkv-duo kern.err kernel: [  681.506687] Out of memory: Killed process 372 (sample_vi_od) total-vm:165180kB, anon-rss:144892kB, file-rss:4kB, shmem-rss:0kB, UID:0 pgtables:348kB oom_score_adj:0
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.584516] oom_reaper: reaped process 372 (sample_vi_od), now anon-rss:0kB, file-rss:0kB, shmem-rss:0kB
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.679056] close channel no. 1
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.679209] close channel no. 0
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.679662] vpss_release
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.679688] vi_stop_streaming:3211(): +
+Mar  1 09:12:45 milkv-duo kern.warn kernel: [  681.679699] vi_stop_streaming:3236(): wait count(9)
+Mar  1 09:12:45 milkv-duo kern.info kernel: [  681.714655] vi_release:6246(): -
+
