@@ -8,8 +8,12 @@ static routers=192.168.0.13
 static domain_name_servers=192.168.0.13 8.8.8.8
 
 
-#copy
+#copy libs
 
+scp -o 'ProxyJump=192.168.94.117' mqtt/paho-mqtt-cpp-tst-build-riscv/paho-mqtt-cpp-tst  'root@192.168.0.153:/mnt/system/'
+scp -o 'ProxyJump=192.168.94.117' milkv/flatcc/lib/libflatccrt.so   'root@192.168.0.153:/mnt/system/usr/lib/3rd/'
+scp -o 'ProxyJump=192.168.94.117' milkv/3rd-libs/build-paho-mqtt-cpp-riscv/externals/paho-mqtt-c/src/libpaho-mqtt3*   'root@192.168.0.153:/mnt/system/usr/lib/3rd/'
+scp -o 'ProxyJump=192.168.94.117' milkv/3rd-libs/build-paho-mqtt-cpp-riscv/src/libpaho-mqttpp3.so*   'root@192.168.0.153:/mnt/system/usr/lib/3rd/'
 
 
 2. auto run camera detection
@@ -18,6 +22,7 @@ vi /mnt/system/auto.sh
 
 export LD_LIBRARY_PATH=/mnt/system/lib
 export LD_LIBRARY_PATH=/mnt/system/lib:/mnt/system/usr/lib:/mnt/system/usr/lib/3rd
+
 /mnt/system/usr/bin/sample_vi_fd /mnt/cvimodel/scrfd_480_270_int8.cvimodel &
 /mnt/system/usr/bin/a.out /mnt/system/usr/bin/sample_vi_od /mnt/system/usr/bin/sample_vi_od 153 mobiledetv2-pedestrian /mnt/cvimodel/mobiledetv2-pedestrian-d0-ls-448.cvimo
 del &

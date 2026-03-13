@@ -14,6 +14,7 @@ grep -r --include=*.{h,c} SAMPLE
 
 history | cut -b 8-
 
+sudo hostnamectl set-hostname orangepi3-lts-12
 
 ls -la d*
 

@@ -13,6 +13,9 @@ git status
 
 git checkout -b my-branch
 
+#to last commit
+git checkout branchname
+
 
 git "You have divergent branches" when I havent made any changes or commits
 

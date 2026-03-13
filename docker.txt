@@ -61,6 +61,7 @@ docker run -it \
 
 #run examples
 
+dockerfiles/docker-x11.sh cpp-devel:deb-13.2 ${PWD}:/mnt
 ./docker-freecad.sh freecad:latest ${PWD}/freecad:/mnt
 docker-x11.sh freecad:latest ${PWD}:/mnt
 docker-x11.sh occt:latest    ${PWD}:/mnt
