@@ -1,0 +1,11 @@
+. ./riscv-envsetup.sh 
+cd 3rd-libs/
+printenv |grep CC
+cmake -DPAHO_BUILD_SAMPLES=1 -B build-paho-riscv/ paho.mqtt.c/
+mkdir paho.mqtt.c-build-riscv
+cmake -DPAHO_BUILD_SAMPLES=1 -B paho.mqtt.c-build-riscv/ paho.mqtt.c/
+cmake --build paho.mqtt.c-build-riscv/
+
+v@R7-7700-mx:/mnt/milk-v/3rd-libs$ scp paho.mqtt.c-build-riscv/src/samples/MQTTAsync_subscribe root@192.168.0.153:/mnt/system
+[root@milkv-duo-153]~# /mnt/system/MQTTAsync_subscribe tcp://192.168.0.153:1883
+
