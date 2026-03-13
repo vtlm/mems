@@ -1,3 +1,15 @@
+find_package(PahoMqttCpp REQUIRED)
+
+if(PahoMqttCpp_FOUND)
+    message(STATUS "Found PahoMqttCpp")
+    message(STATUS "PahoMqttCpp include dirs: ${PahoMqttCpp_INCLUDE_DIRS}")
+    message(STATUS "PahoMqttCpp libraries: ${PahoMqttCpp_LIBRARIES}")
+else()
+    message(STATUS "Could not locate PahoMqttCpp")
+endif()
+
+///
+
 cmake -B build-riscv
 cmake --build  build-riscv
 readelf -h build-riscv/run-mon
@@ -9,7 +21,6 @@ cmake --build /mnt/build -j $(nproc)
 cd ../paho.mqtt.cpp
 git submodule init
 git submodule update 
-cd ../paho.mqtt.cpp-
 cd ../paho.mqtt.cpp-build/
 cmake ../paho.mqtt.cpp -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -DPAHO_BUILD_EXAMPLES=ON
 cmake --build .
@@ -23,3 +34,10 @@ cmake ../paho.mqtt.cpp/ -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -DPAHO_BUILD_E
 #fromm common top dir
 make -DPAHO_WITH_SSL=OFF -DPAHO_WITH_MQTT_C=ON -B build-paho-mqtt-cpp-riscv paho.mqtt.cpp/
 cmake --build build-paho-mqtt-cpp-riscv/ -j $(nproc)
+
+
+mkdir pfs-build
+cmake -B pfs-build pfs
+cmake --build pfs-build -j
+sudo cmake --install pfs-build
+

@@ -14,9 +14,12 @@ grep -r --include=*.{h,c} SAMPLE
 
 history | cut -b 8-
 
+sudo hostnamectl set-hostname orangepi3-lts-12
 
 ls -la d*
 
+ln -s ../host-tools/ host-tools
 
+rm -rf build-paho*
 rm -rf ~/.local/share/Trash/*
 rm -rf ~/.local/share/Trash/files/*

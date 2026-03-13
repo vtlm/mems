@@ -8,6 +8,7 @@ docker run --privileged -itd --name duodocker -v "$(pwd)":/home/work milkvtech/m
 docker ps -a
 docker exec -it 8edea33c2239 /bin/bash
 
+
 ###
 
 cd where dir host-tools
@@ -24,4 +25,23 @@ mkdir build-paho-mqtt
 cd build-paho-mqtt/
 cmake ../paho.mqtt.c/
 cmake --build .
+
+
+### new
+
+v@vivo:/mnt/milkv$ cat riscv-envsetup.sh
+export PATH=$PATH:$(pwd)/host-tools/gcc/riscv64-linux-musl-x86_64/bin
+. ./duo-tdl-examples/envsetup.shv@vivo:/mnt/milkv$
+
+v@vivo:/mnt/milkv$ . ./riscv-envsetup.sh
+
+
+v@R7-7700-mx:/mnt/milk-v/duo-buildroot-sdk-v2-o2$ scp tdl_sdk/install/bin/sample_vi_od root@192.168.0.153:/mnt/system/usr/bin
+
+#in container
+cd duo-buildroot-sdk-v2-o2/
+export FORCE_UNSAFE_CONFIGURE=1
+. ./build/envsetup_milkv.sh 
+build_tdl_sdk 
+scp tdl_sdk/install/bin/sample_vi_od root@192.168.0.153:/mnt/system/usr/bin
 
